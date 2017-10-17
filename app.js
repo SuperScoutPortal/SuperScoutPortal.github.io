@@ -9,9 +9,11 @@
   };
   firebase.initializeApp(config);
 
-  const preObject = document.getElementById('profile');
+  const preObject = document.getElementById('data');
 
-  const dbRefObject = firebase.database().ref().child('profile');
+  var name = 'profile';
+
+  const dbRefObject = firebase.database().ref().child(name);
 
   dbRefObject.on('value', snap => {
   		preObject.innerText = JSON.stringify(snap.val(), null, 3);
